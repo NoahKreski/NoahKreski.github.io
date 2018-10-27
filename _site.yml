@@ -3,13 +3,16 @@ output_dir: "."
 navbar:
   title: "Home"
   right:
-    - text: "About"
-      href: about.html
     - text: "Home"
       href: index.html
+    - text: "About"
+      href: about.html
+    - text: "Resume"
+      href: Resume.html
     - icon: fa-envelope fa-lg
-      href: mailto:<you@youremail.com>
+      href: mailto:<ntk220@nyu.edu>
     - icon: fa-github fa-lg
-      href: http://github.com/<YOUR_GH_NAME>/
+      href: http://github.com/NoahKreski/
 output:
-  html_document
+  html_document:
+    theme: united

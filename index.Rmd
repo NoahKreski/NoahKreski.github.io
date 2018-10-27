@@ -1,7 +1,7 @@
 ---
-title: "Holy cow!"
+title: "Hello!"
 ---
 
-### I have a webpage!
+### Welcome to the Webpage of Noah Kreski
 
-And I can put all kinds of stuff on it!
+Use the navigation bar above to see my academic qualifications, my github, or send me an email.
