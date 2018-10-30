@@ -7,6 +7,8 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+install.packages("colorspace")
+library(ggplot2)
 library(tidyverse)
 library(viridis)
 ## Loading required package: viridisLite
