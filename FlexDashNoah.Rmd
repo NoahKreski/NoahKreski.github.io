@@ -12,7 +12,7 @@ library(tidyverse)
 library(viridis)
 ## Loading required package: viridisLite
 library(p8105.datasets)
-
+library(flexdashboard)
 library(plotly)
 ```
 
@@ -33,12 +33,22 @@ Column {data-width=350}
 ### Chart B
 
 ```{r}
-
+instacart%>%
+  plot_ly(x = ~as.factor(order_dow), y = ~days_since_prior_order, color = ~as.factor(order_dow), type = "box")
 ```
 
 ### Chart C
 
 ```{r}
 
+instacart_ggboxplot = 
+ instacart %>% 
+  ggplot(aes(x = as.factor(order_dow), y = days_since_prior_order, fill = as.factor(order_dow))) +
+  geom_boxplot() +
+  theme_classic() + 
+  labs(x = "Day of Week", y = "Days Since Prior Order", title = "Days since Prior Order by Day of Week", fill = "Day")
+
+
+ggplotly(instacart_ggboxplot)
 ```
 
