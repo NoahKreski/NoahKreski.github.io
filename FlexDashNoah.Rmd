@@ -7,7 +7,11 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+<<<<<<< HEAD
 install.packages("colorspace", repos = "http://cran.us.r-project.org")
+=======
+install.packages("colorspace")
+>>>>>>> b63a3dde3bbc979633b73a74863ba6d8525e9cd6
 library(ggplot2)
 library(tidyverse)
 library(viridis)
