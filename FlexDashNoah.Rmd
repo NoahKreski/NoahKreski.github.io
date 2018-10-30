@@ -1,0 +1,44 @@
+---
+title: "FlexDashNoah"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+install.packages("colorspace")
+library(tidyverse)
+library(viridis)
+## Loading required package: viridisLite
+library(p8105.datasets)
+
+library(plotly)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+instacart%>%
+  count(order_hour_of_day)%>%
+  plot_ly(x = ~order_hour_of_day, y = ~n, color = ~order_hour_of_day, type = "bar")
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+```
+
+### Chart C
+
+```{r}
+
+```
+
