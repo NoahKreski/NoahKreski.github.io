@@ -7,7 +7,6 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-install.packages("colorspace")
 library(tidyverse)
 library(viridis)
 ## Loading required package: viridisLite
