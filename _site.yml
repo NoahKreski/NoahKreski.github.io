@@ -9,8 +9,8 @@ navbar:
       href: about.html
     - text: "Resume"
       href: Resume.html
-    - text: "FlexDashboard"
-      href: FlexDashNoah.html
+    - text: "Dashboard"
+      href: dashboard_template.html
     - icon: fa-envelope fa-lg
       href: mailto:<ntk220@nyu.edu>
     - icon: fa-github fa-lg

@@ -1,0 +1,53 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(viridis)
+
+library(p8105.datasets)
+
+library(plotly)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+instacart%>%
+  count(order_hour_of_day)%>%
+  plot_ly(x = ~order_hour_of_day, y = ~n, color = ~order_hour_of_day, type = "bar")
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+instacart%>%
+  plot_ly(x = ~as.factor(order_dow), y = ~days_since_prior_order, color = ~as.factor(order_dow), type = "box")
+```
+
+### Chart C
+
+```{r}
+instacart_ggboxplot = 
+ instacart %>% 
+  ggplot(aes(x = as.factor(order_dow), y = days_since_prior_order, fill = as.factor(order_dow))) +
+  geom_boxplot() +
+  theme_classic() + 
+  labs(x = "Day of Week", y = "Days Since Prior Order", title = "Days since Prior Order by Day of Week", fill = "Day")
+
+
+ggplotly(instacart_ggboxplot)
+```
+
