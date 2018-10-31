@@ -8,8 +8,9 @@ output:
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
-install.packages("colorspace")
+install.packages("colorspace", repos = "http://cran.us.r-project.org")
 library(tidyverse)
+install.packages("colorspace", repos = "http://cran.us.r-project.org")
 library(viridis)
 
 library(p8105.datasets)
@@ -24,7 +25,7 @@ Column {data-width=650}
 
 ```{r}
 Plot_A = instacart%>%
-  ggplot(aes(x = order_hour_of_day, group = order_hour_of_day, fill = order_hour_of_day)) + geom_histogram() + stat_bin(bins = 24) + labs(x = "Hour of the Day", title = "Items Ordered by hour of the day")
+  ggplot(aes(x = order_hour_of_day, group = order_hour_of_day, fill = order_hour_of_day)) + geom_histogram() + stat_bin(bins = 24) + labs(x = "Hour of the Day", title = "Total Items Ordered by hour of the day")
 
 ggplotly(Plot_A)
 ```
@@ -37,7 +38,7 @@ Column {data-width=350}
 ```{r}
 Plot_B = filter(instacart, aisle_id==1)%>%
   count(order_hour_of_day)%>%
-  ggplot(aes(x = order_hour_of_day, y=n, color = "red")) + geom_line() + geom_point()  + theme(legend.position="none") + labs(x = "Hour of the Day", y = "Items ordered", title = "Items Ordered by Hour of the day")
+  ggplot(aes(x = order_hour_of_day, y=n, color = "red")) + geom_line() + geom_point()  + theme(legend.position="none") + labs(x = "Hour of the Day", y = "Deli Items ordered", title = "Deli Items Ordered by Hour of the day")
 
 ggplotly(Plot_B)
 
