@@ -6,4 +6,4 @@ title: "About this Site"
 
 This website exists as a submission for [P8105: Data Science I](http://p8105.com/index.html) at Columbia University's Mailman School of Public Health.
 
-[Click here](https://noahkreski.github.io/dashboard_template) to see my FlexDashboard
+[Click here](https://noahkreski.github.io/dashboard_template) to see my FlexDashboard.
