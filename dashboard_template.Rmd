@@ -9,12 +9,9 @@ output:
 ```{r setup, include=FALSE}
 
 library(flexdashboard)
-
 library(tidyverse)
 library(viridis)
-
 library(p8105.datasets)
-
 library(plotly)
 ```
 
@@ -24,9 +21,10 @@ Column {data-width=650}
 ### Chart A
 
 ```{r Chart A}
+#I am reading in instacart data, and producing a ggplot histogram of total orders by hour of day, then formatting with appropriate labels.
 Plot_A = instacart%>%
-  ggplot(aes(x = order_hour_of_day, group = order_hour_of_day, fill = order_hour_of_day))  + geom_histogram() + stat_bin(bins = 24) + labs(x = "Hour of the Day", title = "Total Items Ordered by hour of the day", fill = "day")
-
+  ggplot(aes(x = order_hour_of_day, group = order_hour_of_day, fill = order_hour_of_day))  + geom_histogram() + stat_bin(bins = 24) + labs(x = "Hour of the Day", title = "Total Items Ordered by Hour of the Day", fill = "day")
+#This takes the ggplot and utilizes plotly to host it
 ggplotly(Plot_A)
 ```
 
@@ -36,10 +34,13 @@ Column {data-width=350}
 ### Chart B
 
 ```{r Chart B}
+#This filters the instacart data to just the deli section.
 Plot_B = filter(instacart, aisle_id==1)%>%
+  #I am getting the number of deli items ordered by hour in the day.
   count(order_hour_of_day)%>%
+  #I am plotting that number over the course of the day with a line and appropriate labels.
   ggplot(aes(x = order_hour_of_day, y=n)) + geom_line() + geom_point()  + theme(legend.position="none") + labs(x = "Hour of the Day", y = "Deli Items ordered", title = "Deli Items Ordered by Hour of the day")
-
+#I am taking my ggplot and using plotly to host it.
 ggplotly(Plot_B)
 
 ```
@@ -48,14 +49,14 @@ ggplotly(Plot_B)
 ### Chart C
 
 ```{r Chart C}
+#I am creating ggplot boxplots for the distribution of days since prior order by day of the week, with appropriate labels
 instacart_ggboxplot = 
- instacart %>% 
+  instacart %>% 
   ggplot(aes(x = as.factor(order_dow), y = days_since_prior_order, fill = as.factor(order_dow))) +
   geom_boxplot() +
   theme_classic() + 
   labs(x = "Day of Week", y = "Days Since Prior Order", title = "Days since Prior Order by Day of Week", fill = "Day")
-
-
+#I am using plotly to host the ggplot made above.
 ggplotly(instacart_ggboxplot)
 ```
 
