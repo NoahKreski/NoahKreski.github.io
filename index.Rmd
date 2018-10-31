@@ -5,3 +5,5 @@ title: "Hello!"
 ### Welcome to the Webpage of Noah Kreski
 
 Use the navigation bar above to see my academic qualifications, my github, or send me an email.
+
+[Click here](https://noahkreski.github.io/dashboard_template) to see my FlexDashboard.
