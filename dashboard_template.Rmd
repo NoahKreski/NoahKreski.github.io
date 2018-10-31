@@ -8,6 +8,7 @@ output:
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
+install.packages("colorspace")
 library(tidyverse)
 library(viridis)
 
@@ -22,9 +23,10 @@ Column {data-width=650}
 ### Chart A
 
 ```{r}
-instacart%>%
-  count(order_hour_of_day)%>%
-  plot_ly(x = ~order_hour_of_day, y = ~n, color = ~order_hour_of_day, type = "bar")
+Plot_A = instacart%>%
+  ggplot(aes(x = order_hour_of_day, group = order_hour_of_day, fill = order_hour_of_day)) + geom_histogram() + stat_bin(bins = 24) + labs(x = "Hour of the Day", title = "Items Ordered by hour of the day")
+
+ggplotly(Plot_A)
 ```
 
 Column {data-width=350}
@@ -33,9 +35,14 @@ Column {data-width=350}
 ### Chart B
 
 ```{r}
-instacart%>%
-  plot_ly(x = ~as.factor(order_dow), y = ~days_since_prior_order, color = ~as.factor(order_dow), type = "box")
+Plot_B = filter(instacart, aisle_id==1)%>%
+  count(order_hour_of_day)%>%
+  ggplot(aes(x = order_hour_of_day, y=n, color = "red")) + geom_line() + geom_point()  + theme(legend.position="none") + labs(x = "Hour of the Day", y = "Items ordered", title = "Items Ordered by Hour of the day")
+
+ggplotly(Plot_B)
+
 ```
+
 
 ### Chart C
 
