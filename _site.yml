@@ -7,8 +7,6 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
-    - text: "Dashboard"
-      href: dashboard_template.html
     - text: "Resume"
       href: Resume.html
     - icon: fa-envelope fa-lg
