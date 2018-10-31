@@ -23,9 +23,9 @@ Column {data-width=650}
 
 ### Chart A
 
-```{r}
+```{r Chart A}
 Plot_A = instacart%>%
-  ggplot(aes(x = order_hour_of_day, group = order_hour_of_day)) + geom_histogram() + stat_bin(bins = 24) + labs(x = "Hour of the Day", title = "Total Items Ordered by hour of the day")
+  ggplot(aes(x = order_hour_of_day, group = order_hour_of_day, fill = order_hour_of_day))  + geom_histogram() + stat_bin(bins = 24) + labs(x = "Hour of the Day", title = "Total Items Ordered by hour of the day", fill = "day")
 
 ggplotly(Plot_A)
 ```
@@ -35,7 +35,7 @@ Column {data-width=350}
 
 ### Chart B
 
-```{r}
+```{r Chart B}
 Plot_B = filter(instacart, aisle_id==1)%>%
   count(order_hour_of_day)%>%
   ggplot(aes(x = order_hour_of_day, y=n)) + geom_line() + geom_point()  + theme(legend.position="none") + labs(x = "Hour of the Day", y = "Deli Items ordered", title = "Deli Items Ordered by Hour of the day")
@@ -47,13 +47,13 @@ ggplotly(Plot_B)
 
 ### Chart C
 
-```{r}
+```{r Chart C}
 instacart_ggboxplot = 
  instacart %>% 
-  ggplot(aes(x = as.factor(order_dow), y = days_since_prior_order)) +
+  ggplot(aes(x = as.factor(order_dow), y = days_since_prior_order, fill = as.factor(order_dow))) +
   geom_boxplot() +
   theme_classic() + 
-  labs(x = "Day of Week", y = "Days Since Prior Order", title = "Days since Prior Order by Day of Week")
+  labs(x = "Day of Week", y = "Days Since Prior Order", title = "Days since Prior Order by Day of Week", fill = "Day")
 
 
 ggplotly(instacart_ggboxplot)
